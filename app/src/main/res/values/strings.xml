@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FlashCard</string>
+    <string name="flashcardQuestion">What is the first black people free in the world ?</string>
+    <string name="flashcardAnswerHint">Haitian</string>
+</resources>

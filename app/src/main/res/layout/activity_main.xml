@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/flashcardQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="@string/flashcardQuestion"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/flashcardAnswerHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flashcardQuestion"
+        android:layout_margin="10dp"
+        android:layout_marginTop="107dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="@string/flashcardAnswerHint"
+        android:textSize="40sp"
+        android:visibility="invisible" />
+
+</RelativeLayout>
