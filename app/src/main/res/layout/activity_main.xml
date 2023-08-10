@@ -29,4 +29,63 @@
         android:textSize="40sp"
         android:visibility="invisible" />
 
+    <Button
+        android:id="@+id/btnAnswer1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flashcardQuestion"
+        android:layout_marginTop="195dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/answer1" />
+
+    <Button
+        android:id="@+id/btnAnswer2"
+        android:layout_below="@+id/btnAnswer1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/answer2"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnAnswer3"
+        android:layout_below="@+id/btnAnswer2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/answer3"
+        android:layout_centerHorizontal="true" />
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:minHeight="48dp"
+        android:contentDescription="@string/save"
+        android:src="@drawable/ic_edit_48dp"
+        app:backgroundTint="@color/green"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="true"/>
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="@string/newFlashCard"
+        android:minHeight="48dp"
+        android:src="@drawable/ic_add_black_24dp"
+        app:backgroundTint="@color/purple_500"
+        tools:ignore="ImageContrastCheck,RelativeOverlap,SpeakableTextPresentCheck"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>

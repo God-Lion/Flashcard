@@ -1,5 +1,16 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">FlashCard</string>
     <string name="flashcardQuestion">What is the first black people free in the world ?</string>
     <string name="flashcardAnswerHint">Haitian</string>
+    <string name="addNewFlashCard">New</string>
+    <string name="newFlashCard">New card</string>
+    <string name="cancel" tools:ignore="ButtonCase">cancel</string>
+    <string name="save">save</string>
+    <string name="answer1">Haitian</string>
+    <string name="answer2">Venezuela</string>
+    <string name="answer3">Bolivia</string>
+    <string name="answerEmpty">answer</string>
+    <string name="question_is_empty">Question is empty !</string>
+    <string name="saveSuccessCard">Card successfull created!</string>
+    <string name="answer_is_empty">Answer is empty</string>
 </resources>

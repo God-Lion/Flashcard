@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditFlashCardActivity"
+    android:id="@+id/activity_edit_flash_card">
+
+    <EditText
+        android:id="@+id/inputFlashcardQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="148dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/newFlashCard"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="20dp"
+        android:paddingStart="12dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="12dp"
+        tools:ignore="SpeakableTextPresentCheck,DuplicateClickableBoundsCheck" />
+
+    <EditText
+        android:id="@+id/inputAnswer1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inputFlashcardQuestion"
+        android:layout_marginTop="185dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/answerEmpty"
+        android:inputType="textMultiLine"
+        android:minHeight="48dp"
+        android:paddingStart="12dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="12dp"
+        tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/inputAnswer2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inputAnswer1"
+        android:autofillHints=""
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/answerEmpty"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="34dp"
+        android:minHeight="48dp"
+        android:paddingStart="12dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="12dp"
+        tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/inputAnswer3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inputAnswer2"
+        android:autofillHints=""
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/answerEmpty"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="34dp"
+        android:minHeight="48dp"
+        android:paddingStart="12dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="12dp"
+        tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/fab_margin"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:contentDescription="@string/save"
+        android:minHeight="48dp"
+        android:src="@drawable/down_circle_lined"
+        app:backgroundTint="@color/green"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:minHeight="48dp"
+        android:contentDescription="@string/cancel"
+        android:src="@drawable/mark_circle_lined"
+        app:backgroundTint="@color/red"
+        tools:ignore="ImageContrastCheck,RelativeOverlap,SpeakableTextPresentCheck"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
