@@ -6,7 +6,7 @@ Developed week 2 during CodePath's Intro to Mobile Product Development course.
 ### App Description
 Basic Flashcard app that can display a question, and on tap display the answer to the question
 
-<img  src='https://github.com/God-Lion/Flashcard/blob/main/flashcard_lab_2.gif' width=100><br>
+<img  src='https://github.com/God-Lion/Flashcard/blob/main/flashcard_lab_2.gif' width=200><br>
 
 ## Required
 - [x] User can click on a ‘+’ button that takes the user to new ‘Add Card Screen’
