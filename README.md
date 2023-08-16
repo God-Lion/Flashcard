@@ -1,7 +1,7 @@
 ## FlashCard 🗃✨
 Developed week 2 during CodePath's Intro to Mobile Product Development course.
 
-## Lab 2
+## Lab 3
 
 ### App Description
 Basic Flashcard app that can display a question, and on tap display the answer to the question
