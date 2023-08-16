@@ -1,5 +1,5 @@
 ## FlashCard 🗃✨
-Developed week 2 during CodePath's Intro to Mobile Product Development course.
+Developed week 5 during CodePath's Intro to Mobile Product Development course.
 
 ## Lab 3
 
