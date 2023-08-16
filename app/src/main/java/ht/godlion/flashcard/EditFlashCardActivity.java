@@ -8,16 +8,25 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import static ht.godlion.flashcard.MainActivity.MAIN_EXTRA_Key;
+
+import java.util.Date;
+
+import ht.godlion.flashcard.db.FlashCardsDB;
+import ht.godlion.flashcard.db.FlashCardsDao;
+import ht.godlion.flashcard.model.FlashCard;
 
 public class EditFlashCardActivity extends AppCompatActivity {
     public static final String FLASHCARD_EXTRA_Key = "flashCard_id";
+    public static final String FLASHCARD_EXTRA_EDIT_ID = "id";
+    public static final int ADD_FLASHCARD_REQUEST_CODE = 100;
+    public static final int EDIT_FLASHCARD_REQUEST_CODE = 200;
     private EditText inputFlashCardQuestion;
 
     private EditText inputAnswer1;
     private EditText inputAnswer2;
     private EditText inputAnswer3;
-
+    private FlashCardsDao dao;
+    private FlashCard temp;
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
@@ -27,21 +36,14 @@ public class EditFlashCardActivity extends AppCompatActivity {
         this.inputAnswer1 = findViewById(R.id.inputAnswer1);
         this.inputAnswer2 = findViewById(R.id.inputAnswer2);
         this.inputAnswer3 = findViewById(R.id.inputAnswer3);
-
+        this.dao = FlashCardsDB.getInstance(this).flashcardsDBDao();
         if (getIntent().getExtras() != null) {
-            String editString = getIntent().getExtras().getString(FLASHCARD_EXTRA_Key);
-            assert editString != null;
-            String[] arrOfStr = editString.split("/;/");
-            String flashcardQuestionText = arrOfStr[0];
-
-            String answer1 = arrOfStr[1];
-            String answer2 = arrOfStr[2];
-            String answer3 = arrOfStr[3];
-
-            this.inputFlashCardQuestion.setText(flashcardQuestionText);
-            this.inputAnswer1.setText(answer1);
-            this.inputAnswer2.setText(answer2);
-            this.inputAnswer3.setText(answer3);
+            int id = getIntent().getExtras().getInt(FLASHCARD_EXTRA_Key, 0);
+            this.temp = this.dao.getFlashcardById(id);
+            this.inputFlashCardQuestion.setText(this.temp.getQuestion());
+            this.inputAnswer1.setText(this.temp.getAnswer());
+            this.inputAnswer2.setText(this.temp.getWrong_answer1());
+            this.inputAnswer3.setText(this.temp.getWrong_answer2());
         } else this.inputFlashCardQuestion.setFocusable(true);
         FloatingActionButton fabSave = findViewById(R.id.fabSave);
         fabSave.setOnClickListener(view -> onSaveFlashCard());
@@ -50,22 +52,33 @@ public class EditFlashCardActivity extends AppCompatActivity {
     }
 
     private void onSaveFlashCard () {
-        if (this.inputFlashCardQuestion.getText().toString().isEmpty()) {
+        String question = this.inputFlashCardQuestion.getText().toString();
+        String answer = this.inputAnswer1.getText().toString();
+        String wrong_answer1 = this.inputAnswer2.getText().toString();
+        String wrong_answer2 = this.inputAnswer3.getText().toString();
+        if (question.trim().isEmpty()) {
             Toast.makeText(this, getString(R.string.question_is_empty), Toast.LENGTH_SHORT).show();
         }
-        else if (this.inputAnswer1.getText().toString().trim().isEmpty() || this.inputAnswer2.getText().toString().trim().isEmpty() || this.inputAnswer3.getText().toString().trim().isEmpty()) {
+        else if (answer.trim().isEmpty() || wrong_answer1.trim().isEmpty() || wrong_answer2.trim().isEmpty()) {
             Toast.makeText(this, getString(R.string.answer_is_empty), Toast.LENGTH_SHORT).show();
         }
         else {
-            String editString = this.inputFlashCardQuestion.getText().toString().trim() +
-                    "/;/" +
-                    this.inputAnswer1.getText().toString().trim() +
-                    "/;/" +
-                    this.inputAnswer2.getText().toString().trim() +
-                    "/;/" +
-                    this.inputAnswer3.getText().toString().trim();
             Intent save = new Intent( this, MainActivity.class );
-            save.putExtra(MAIN_EXTRA_Key, editString);
+            long date = new Date().getTime();
+            if ( this.temp == null ) {
+                this.temp = new FlashCard(question, answer, wrong_answer1, wrong_answer2, date);
+                this.dao.insertFlashCard(this.temp);
+                save.putExtra(FLASHCARD_EXTRA_Key, ADD_FLASHCARD_REQUEST_CODE);
+            } else {
+                this.temp.setQuestion(question);
+                this.temp.setAnswer(answer);
+                this.temp.setWrong_answer1(wrong_answer1);
+                this.temp.setWrong_answer2(wrong_answer2);
+                this.temp.setFlashcardDate(date);
+                this.dao.updateFlashCard(this.temp);
+                save.putExtra(FLASHCARD_EXTRA_Key, EDIT_FLASHCARD_REQUEST_CODE);
+                save.putExtra(FLASHCARD_EXTRA_EDIT_ID, this.temp.getId());
+            }
             setResult(RESULT_OK, save);
             startActivity(save);
         }
@@ -73,8 +86,5 @@ public class EditFlashCardActivity extends AppCompatActivity {
     }
 
 
-
-    private void onCancelFlashCard () {
-        finish();
-    }
+    private void onCancelFlashCard () { finish(); }
 }

@@ -20,7 +20,7 @@
         android:paddingStart="12dp"
         android:paddingTop="14dp"
         android:paddingEnd="12dp"
-        tools:ignore="SpeakableTextPresentCheck,DuplicateClickableBoundsCheck" />
+        tools:ignore="SpeakableTextPresentCheck,DuplicateClickableBoundsCheck,VisualLintTextFieldSize" />
 
     <EditText
         android:id="@+id/inputAnswer1"
@@ -31,7 +31,7 @@
         android:autofillHints=""
         android:ems="10"
         android:gravity="start|top"
-        android:hint="@string/answerEmpty"
+        android:hint="@string/goodAnswerEmpty"
         android:inputType="textMultiLine"
         android:minHeight="48dp"
         android:paddingStart="12dp"
@@ -47,7 +47,7 @@
         android:autofillHints=""
         android:ems="10"
         android:gravity="start|top"
-        android:hint="@string/answerEmpty"
+        android:hint="@string/wrongAnswerEmpty"
         android:inputType="textMultiLine"
         android:layout_marginTop="34dp"
         android:minHeight="48dp"
@@ -64,7 +64,7 @@
         android:autofillHints=""
         android:ems="10"
         android:gravity="start|top"
-        android:hint="@string/answerEmpty"
+        android:hint="@string/wrongAnswerEmpty"
         android:inputType="textMultiLine"
         android:layout_marginTop="34dp"
         android:minHeight="48dp"
@@ -86,7 +86,8 @@
         android:contentDescription="@string/save"
         android:minHeight="48dp"
         android:src="@drawable/down_circle_lined"
-        app:backgroundTint="@color/green"
+        app:backgroundTint="@color/teal_700"
+        app:tint="@android:color/white"
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -98,6 +99,7 @@
         android:contentDescription="@string/cancel"
         android:src="@drawable/mark_circle_lined"
         app:backgroundTint="@color/red"
+        app:tint="@android:color/white"
         tools:ignore="ImageContrastCheck,RelativeOverlap,SpeakableTextPresentCheck"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"/>
