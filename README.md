@@ -6,7 +6,7 @@ Developed week 6 during CodePath's Intro to Mobile Product Development course.
 ### App Description
 Basic Flashcard app that can display a question, and on tap display the answer to the question
 
-<img  src='https://github.com/God-Lion/Flashcard/blob/main/flashcard_lab_4.gif' width=200><br>
+<img  src='https://github.com/God-Lion/Flashcard/blob/main/flashcard_lab_4.gif' width=200/><br>
 
 ## Required
 - [x] User sees a transition animation when going from the main screen to the add card screen.
